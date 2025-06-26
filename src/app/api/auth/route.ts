@@ -1,6 +1,6 @@
 import { NextRequest, NextResponse } from "next/server";
 import { extractUserFromToken, getClientIP } from "@/utils/firebaseAuthServer";
-import { RateLimiter } from "@/app/admin/forms/utils/rateLimiter";
+import { RateLimiter } from "@/utils/rateLimiter";
 
 // Force dynamic rendering for this route
 export const dynamic = 'force-dynamic';

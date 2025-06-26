@@ -1,6 +1,6 @@
 import { NextRequest, NextResponse } from 'next/server';
 import { getClientIP } from '@/utils/serverAuth';
-import { RateLimiter, RateLimitType } from '@/app/admin/forms/utils/rateLimiter';
+import { RateLimiter, RateLimitType } from "@/utils/rateLimiter";
 
 // Force dynamic rendering for this route
 export const dynamic = 'force-dynamic';

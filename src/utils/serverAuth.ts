@@ -1,5 +1,6 @@
 import { NextRequest } from 'next/server';
 import { AUTH_COOKIE_CONFIG } from './authUtils';
+import { RateLimiter } from "@/utils/rateLimiter";
 import { getAdminFirestore, isAdminAvailable } from '@/firebase/firebaseAdmin';
 
 // Server-side session store for enhanced security
@@ -494,7 +495,6 @@ export async function requireAuthWithRateLimit(
         const ip = getClientIP(request);
         
         // Apply rate limiting first
-        const { RateLimiter } = await import('@/app/admin/forms/utils/rateLimiter');
         const rateLimitResult = await RateLimiter.checkLimit(ip, rateLimitType);
         
         if (!rateLimitResult.success) {

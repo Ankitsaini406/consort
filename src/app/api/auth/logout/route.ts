@@ -1,7 +1,7 @@
 import { NextRequest, NextResponse } from "next/server";
 import { getClientIP } from '@/utils/serverAuth';
 import { AUTH_COOKIE_CONFIG } from '@/utils/authUtils';
-import { RateLimiter } from '@/app/admin/forms/utils/rateLimiter';
+import { RateLimiter } from "@/utils/rateLimiter";
 
 export async function POST(request: NextRequest) {
     try {
