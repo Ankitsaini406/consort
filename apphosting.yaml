@@ -1,0 +1,86 @@
+# Settings for Backend (on Cloud Run).
+# See https://firebase.google.com/docs/app-hosting/configure#cloud-run
+runConfig:
+  # 💰 ULTRA-LOW COST CONFIGURATION
+  # Perfect for: 2 admins weekly + SSG public pages + daily builds
+  
+  # Scale to zero completely when not in use (critical for cost savings)
+  minInstances: 0
+  
+  # Very low max instances since only 2 admins will use it
+  maxInstances: 2
+  
+  # Lower concurrency for minimal usage (saves memory per instance)
+  concurrency: 10
+  
+  # Minimum CPU for cost optimization (sufficient for 2 admin users)
+  cpu: 1
+  
+  # Minimum viable memory for Next.js + Firebase auth
+  memoryMiB: 512
+  
+  # Shorter timeout since admin operations should be quick
+  timeoutSeconds: 120
+  
+  # 🆓 FREE TIER OPTIMIZATION NOTES:
+  # - 0.5 vCPU @ 512MB = ~$0.024/hour when running
+  # - With 2 admins using 1hr/week total = ~$0.10/month
+  # - Plus daily builds (minimal cost impact)
+  # - SSG pages = $0 (served statically)
+
+# Build configuration - Optimized for daily builds
+buildConfig:
+  buildCommand: "npm run build"
+  nodeVersion: "20.11.0"
+  
+  # 💰 COST-OPTIMIZED BUILD RESOURCES
+  # Lower resources since builds are scheduled daily, not urgent
+  buildCpuCount: 1
+  buildMemoryGiB: 2
+
+# Environment variables and secrets.
+env:
+  # Grant access to secrets in Cloud Secret Manager.
+  - variable: NEXT_JWT_KEY
+    secret: NEXT_JWT_KEY
+  
+  # CSRF Protection Secret
+  - variable: CSRF_SECRET
+    secret: CSRF_SECRET
+
+  # Firebase Configuration (from secrets for security)
+  - variable: NEXT_PUBLIC_FIREBASE_API_KEY
+    secret: NEXT_PUBLIC_FIREBASE_API_KEY
+  - variable: NEXT_PUBLIC_FIREBASE_AUTH_DOMAIN
+    secret: NEXT_PUBLIC_FIREBASE_AUTH_DOMAIN
+  - variable: NEXT_PUBLIC_FIREBASE_PROJECT_ID
+    secret: NEXT_PUBLIC_FIREBASE_PROJECT_ID
+  - variable: NEXT_PUBLIC_FIREBASE_STORAGE_BUCKET
+    secret: NEXT_PUBLIC_FIREBASE_STORAGE_BUCKET
+  - variable: NEXT_PUBLIC_FIREBASE_MESSAGING_SENDER_ID
+    secret: NEXT_PUBLIC_FIREBASE_MESSAGING_SENDER_ID
+  - variable: NEXT_PUBLIC_FIREBASE_APP_ID
+    secret: NEXT_PUBLIC_FIREBASE_APP_ID
+  - variable: NEXT_PUBLIC_FIREBASE_MEASUREMENT_ID
+    secret: NEXT_PUBLIC_FIREBASE_MEASUREMENT_ID
+  
+  # 🚀 PERFORMANCE OPTIMIZATION VARIABLES
+  - variable: NODE_ENV
+    value: "production"
+    availability:
+      - BUILD
+      - RUNTIME
+  
+  # Next.js optimization - disable telemetry to reduce overhead
+  - variable: NEXT_TELEMETRY_DISABLED
+    value: "1"
+    availability:
+      - BUILD
+      - RUNTIME
+  
+  # 💰 ADDITIONAL COST OPTIMIZATIONS
+  - variable: NEXT_PRIVATE_MINIMAL_MODE
+    value: "true"
+    availability:
+      - BUILD
+      - RUNTIME
