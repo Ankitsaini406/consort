@@ -1,0 +1,29 @@
+{
+  "total": 0,
+  "passed": 0,
+  "failed": 0,
+  "skipped": 0,
+  "categories": {
+    "Security Tests": {
+      "success": false,
+      "output": "Command failed: npx jest --testPathPattern=\"**/*.security.test.{ts,tsx}\" --testTimeout=60000 --verbose --coverage=false --detectOpenHandles --forceExit",
+      "priority": "CRITICAL"
+    }
+  },
+  "startTime": 1749938714233,
+  "endTime": 1749938879101,
+  "coverage": null,
+  "securityIssues": [
+    {
+      "category": "Security Tests",
+      "error": "Command failed: npx jest --testPathPattern=\"**/*.security.test.{ts,tsx}\" --testTimeout=60000 --verbose --coverage=false --detectOpenHandles --forceExit",
+      "priority": "CRITICAL"
+    }
+  ],
+  "performanceIssues": [
+    {
+      "issue": "Performance tests failed",
+      "details": "  Invalid testPattern **\\\\*.performance.test.{ts,tsx} supplied. Running all tests instead.\n  Invalid testPattern **\\\\*.performance.test.{ts,tsx} supplied. Running all tests instead.\n"
+    }
+  ]
+}

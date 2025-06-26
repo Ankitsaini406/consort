@@ -1,0 +1,7 @@
+<svg width="400" height="300" viewBox="0 0 400 300" fill="none" xmlns="http://www.w3.org/2000/svg">
+<rect width="400" height="300" fill="#F3F4F6"/>
+<circle cx="200" cy="120" r="30" fill="#9CA3AF"/>
+<path d="M185 135L190 140L215 115" stroke="#6B7280" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+<text x="200" y="180" text-anchor="middle" fill="#6B7280" font-family="Arial" font-size="14" font-weight="500">Service Image</text>
+<text x="200" y="200" text-anchor="middle" fill="#6B7280" font-family="Arial" font-size="12">Loading...</text>
+</svg> 

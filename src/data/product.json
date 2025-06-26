@@ -1,0 +1,223 @@
+[
+    {
+        "name": "TETRA RCP 5210A",
+        "image": "https://res.cloudinary.com/subframe/image/upload/v1747739620/uploads/12970/vadddwofldtil04btldt.png",
+        "headline": "From group & individual calls to emergency and broadcast calls, RCP 5210A ensures reliability, security, and operational efficiency.",
+        "tags": ["Mass Transit", "Handheld", "TETRA", "DMR"],
+        "productResources": [
+            {
+                "name": "Datasheet",
+                "icon": <FeatherFileText />,
+                "variant": "brand-secondary" as ButtonVariant
+            },
+            {
+                "name": "Photographs",
+                "icon": <FeatherImage />,
+                "variant": "brand-secondary" as ButtonVariant
+            },
+            {
+                "name": "Brochure",
+                "icon": <FeatherMap />,
+                "variant": "brand-secondary" as ButtonVariant
+            },
+            {
+                "name": "Case Studies",
+                "icon": <FeatherBox />,
+                "variant": "brand-secondary" as ButtonVariant
+            }
+        ],
+        "industries": [
+            {
+                "name": "Mass Transit",
+                "icon": "https://res.cloudinary.com/subframe/image/upload/v1747554323/uploads/12970/achkmmbons72gdvtcmp0.svg"
+            },
+            {
+                "name": "Oil & Gas",
+                "icon": "https://res.cloudinary.com/subframe/image/upload/v1747716980/uploads/12970/t1i6zraddlj2ojzwgx1h.svg"
+            },
+            {
+                "name": "Mining",
+                "icon": "https://res.cloudinary.com/subframe/image/upload/v1747716995/uploads/12970/chkxzynjcl5jectq26zs.svg"
+            },
+            {
+                "name": "Infrastructure",
+                "icon": "https://res.cloudinary.com/subframe/image/upload/v1747742649/uploads/12970/g2vz3glhar3jwsezbq9j.svg"
+            },
+            {
+                "name": "Public Safety",
+                "icon": "https://res.cloudinary.com/subframe/image/upload/v1747742660/uploads/12970/m1exjwsmklaz0wznmetj.svg"
+            },
+            {
+                "name": "Maritime",
+                "icon": "https://res.cloudinary.com/subframe/image/upload/v1747742671/uploads/12970/oaracoxgkiem5wsowtfo.svg"
+            }
+        ],
+        "productBrief": {
+            "briefHeadline": "Reliable solution for seamless communication and control in the transportation industry, designed for smaller control rooms and stations. Tailored with precision and innovation. RCP 5210A offers a user-friendly touch interface that simplifies operations for controllers.",
+            "briefDescription": "Radio Control Panel RCP 5210A is a Touch Screen Human Machine Interface, typically installed at control rooms and stations. It provides the controllers with call functions like Group Call, Half Duplex Individual Call, Full Duplex, Individual Call, Emergency Call and Text Messaging. RCP 5210A is fully IP based and provides a secure network architecture offering high level of security and integrity. RCP provides highest levels of reliability and environmental standards for the transportation industry.",
+            "briefFeatures": [
+                "10.4\" PCAP Multitouch Touch Screen with Anti Glare GORILLA Glass Screen with Anti Glare GORILLA Glass",
+                "PCAP Multitouch Touch Screen Anti Glare GORILLA Glass",
+                "6-key illuminated touch keypad",
+                "Stereo Vision IR Camera for night vision",
+                "10.4\" PCAP Multitouch Touch Screen with Anti Glare GORILLA Glass Screen with Anti Glare GORILLA Glass"
+            ],
+            "briefUSP": "Modern, reliable and intelligent IP based fixed station solution for critical communications."
+        },
+        "keyFeatures": [
+            {
+                "icon": <FeatherSpeech />,
+                "name": "MCX Voice, Data & Video"
+            },
+            {
+                "icon": <FeatherAtom />,
+                "name": "Flexible Installation"
+            },
+            {
+                "icon": <FeatherNetwork />,
+                "name": "IP-Based Infrastructure"
+            },
+            {
+                "icon": <FeatherGlobe />,
+                "name": "Integrated GPS"
+            },
+            {
+                "icon": <FeatherBatteryFull />,
+                "name": "Battery Back-up 5000 mAH"
+            },
+            {
+                "icon": <FeatherMinimize2 />,
+                "name": "Compact Form Factor"
+            },
+            {
+                "icon": <FeatherMonitor />,
+                "name": "User Friendly GUI &"
+            }
+        ],
+        "clientLogos": {
+            "heading": "Trusted Excellence in Mission Critical Communications",
+            "logos": [
+                {
+                    "alt": "Client Logo",
+                    "src": "https://res.cloudinary.com/subframe/image/upload/v1711417555/shared/dkh8m7duzxhvdhs0hyxr.png"
+                },
+                {
+                    "alt": "Client Logo",
+                    "src": "https://res.cloudinary.com/subframe/image/upload/v1711417549/shared/jtjkdxvy1mm2ozvaymwv.png"
+                },
+                {
+                    "alt": "Client Logo",
+                    "src": "https://res.cloudinary.com/subframe/image/upload/v1711417554/shared/wbkksiezhpupflka2y4z.png"
+                },
+                {
+                    "alt": "Client Logo",
+                    "src": "https://res.cloudinary.com/subframe/image/upload/v1711417564/shared/zhcrzoah8kty6cup8zud.png"
+                },
+                {
+                    "alt": "Client Logo",
+                    "src": "https://res.cloudinary.com/subframe/image/upload/v1711417544/shared/gpuochj4inwyymtmkt9r.png"
+                },
+                {
+                    "alt": "Client Logo",
+                    "src": "https://res.cloudinary.com/subframe/image/upload/v1711417542/shared/s4olcs1go1ntkcqhqyuw.png"
+                }
+            ]
+        },
+        "highlights": {
+            "title": "Highlights",
+            "sections": [
+                {
+                    "image": "https://res.cloudinary.com/subframe/image/upload/v1722404911/uploads/302/uxswoalrzimh7g9ivtiq.webp",
+                    "title": "Thriving in Harsh Environments",
+                    "description": "With IP54 certification and rugged construction, RCP 5210A is the trusted choice for industries/ transportation, ensuring uninterrupted control. It excels in the harshest environments, from scorching heat to freezing cold with its operating temperature of -30°C to +80°C.\r\n",
+                    "imagePosition": "left"
+                },
+                {
+                    "image": "https://res.cloudinary.com/subframe/image/upload/v1722404911/uploads/302/uxswoalrzimh7g9ivtiq.webp",
+                    "title": "Customized, Programmable and Illuminated Touchscreen Interface",
+                    "description": "Elevate control and redefine precision with RCP 5210A – a cutting-edge Radio Control Panel featuring an intuitive touch interface 10.4″ TFT Display at 1024×768 pixels and with an illuminated 6-key touch keypad tailored to specific requirements.\r\n",
+                    "imagePosition": "right"
+                },
+                {
+                    "image": "https://res.cloudinary.com/subframe/image/upload/v1722404911/uploads/302/uxswoalrzimh7g9ivtiq.webp",
+                    "title": "Thriving in Harsh Environments",
+                    "description": "With IP54 certification and rugged construction, RCP 5210A is the trusted choice for industries/ transportation, ensuring uninterrupted control. It excels in the harshest environments, from scorching heat to freezing cold with its operating temperature of -30°C to +80°C.\r\n",
+                    "imagePosition": "left"
+                }
+            ]
+        },
+        "technicalSpecs": {
+            "title": "Technical Specifications:",
+            "model": "RCP 5210A",
+            "specifications": [
+                {
+                    "name": "Frequency Range",
+                    "values": [
+                        "400-470 MHz (Main Unit) 400-470 MHz (Main 400-470 MHz (Main Unit) Unit) 400-470 MHz (Main Unit)400-470 MHz (Main Unit)",
+                        "446 MHz"
+                    ]
+                },
+                {
+                    "name": "Channel Capacity",
+                    "values": ["256"]
+                },
+                {
+                    "name": "Zone Capacity",
+                    "values": ["6 (Analog + Digital)"]
+                },
+                {
+                    "name": "Channel Spacing",
+                    "values": [
+                        "12.5kHz/20kHz/25kHz",
+                        "12.5kHz/20kHz/25kHz"
+                    ]
+                }
+            ]
+        },
+        "relatedProducts": {
+            "title": "Related Products & Accessories",
+            "items": [
+                {
+                    "image": "https://res.cloudinary.com/subframe/image/upload/v1747848342/uploads/12970/u0tk28pkkpioi7q93ttq.webp",
+                    "title": "RCP 5310A",
+                    "description": "Professional DMR Portable Radio for 2-way Comms"
+                },
+                {
+                    "image": "https://res.cloudinary.com/subframe/image/upload/v1747848354/uploads/12970/vtcfr9rxn4fvrwchhmsq.webp",
+                    "title": "RCP 5310A Radio Tetra Solution",
+                    "description": "RCP 5310A"
+                },
+                {
+                    "image": "https://res.cloudinary.com/subframe/image/upload/v1747848368/uploads/12970/j2n6x1mwljgoky9no6er.webp",
+                    "title": "RCP 5310A Radio Tetra Solution",
+                    "description": "RCP 5310A"
+                },
+                {
+                    "image": "https://res.cloudinary.com/subframe/image/upload/v1747848379/uploads/12970/d7hchtknll92t5rw7xzv.webp",
+                    "title": "RCP 5310A Radio Tetra Solution",
+                    "description": "RCP 5310A"
+                }
+            ]
+        },
+        "caseStudies": {
+            "title": "Case Studies for RCP5210A",
+            "items": [
+                {
+                    "image": "https://res.cloudinary.com/subframe/image/upload/v1747756912/uploads/12970/sfmokcbeuk8r2ljvfzh2.avif",
+                    "title": "TETRA Radio Use in Metro Trains in India",
+                    "description": "Case Study from India's busiest Metro Route demonstrates the agility of TETRA"
+                },
+                {
+                    "image": "https://res.cloudinary.com/subframe/image/upload/v1747759080/uploads/12970/ungklbj1eovabr3qlpuq.avif",
+                    "title": "Mobile Radio now used in Multiple Metro Trains",
+                    "description": "Case Study from India's busiest agility of TETRA"
+                },
+                {
+                    "image": "https://res.cloudinary.com/subframe/image/upload/v1747848163/uploads/12970/ejamcjl6w1pulyubod5y.avif",
+                    "title": "Mobile Radio Preferred Solution for Mass Transit",
+                    "description": "Case Study from India's busiest Metro Route demonstrates the agility of TETRA"
+                }
+            ]
+        }
+    }
+]

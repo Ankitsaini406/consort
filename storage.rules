@@ -1,0 +1,168 @@
+rules_version = '2';
+
+// Firebase Storage Security Rules - Enhanced for Slot-Based Upload System
+service firebase.storage {
+  match /b/{bucket}/o {
+    // 🔒 ADMIN UPLOADS - Enhanced Security (Public Read, Admin Write/Delete/List)
+    match /admin-uploads/{userId}/{allPaths=**} {
+      // ✅ Keep public read access (required for website functionality)
+      allow read: if true;
+      
+      // 🔒 SECURITY ENHANCEMENT: Restrict write to authenticated admin users only
+      allow write: if request.auth != null 
+        && request.auth.token.admin == true  // Check custom claims first
+        && isValidFileType()
+        && isValidFileSize();
+      
+      // ✅ ADD: List permission for cleanup operations (listAll() support)
+      allow list: if request.auth != null 
+        && request.auth.token.admin == true;
+      
+      // 🔒 SECURITY ENHANCEMENT: Admin users or file uploader can delete
+      allow delete: if request.auth != null 
+        && (request.auth.token.admin == true || request.auth.uid == userId);
+    }
+    
+    // 🌐 PUBLIC ASSETS - Read-only for public, Admin can manage
+    match /public/{allPaths=**} {
+      allow read: if true; // Public read access
+      allow write: if request.auth != null 
+        && request.auth.token.admin == true  // Admin-only write access
+        && isValidFileType()
+        && isValidFileSize();
+      
+      // ✅ ADD: Admin list and delete permissions for asset management  
+      allow list: if request.auth != null 
+        && request.auth.token.admin == true;
+      allow delete: if request.auth != null 
+        && request.auth.token.admin == true;
+    }
+    
+    // 📁 TEMPORARY UPLOADS - Admin users only
+    match /temp/{userId}/{allPaths=**} {
+      allow write: if request.auth != null 
+        && request.auth.token.admin == true  // Admin-only access
+        && isValidFileType()
+        && isValidFileSize();
+      
+      allow read: if request.auth != null 
+        && request.auth.token.admin == true;  // Admin-only read
+      
+      // ✅ ADD: List permission for cleanup operations
+      allow list: if request.auth != null 
+        && request.auth.token.admin == true;
+        
+      allow delete: if request.auth != null 
+        && (request.auth.token.admin == true || request.auth.uid == userId);
+    }
+    
+    // 📁 CONTENT UPLOADS - For posts, products, etc. (Public read, Admin write/list/delete)
+    // ✅ ENHANCED: Full admin management capabilities for slot-based system
+    match /posts/{allPaths=**} {
+      allow read: if true; // Public read access (required for website)
+      allow write: if request.auth != null 
+        && request.auth.token.admin == true  // Admin-only write
+        && isValidFileType()
+        && isValidFileSize();
+      
+      // ✅ ADD: List and delete for slot-based cleanup operations
+      allow list: if request.auth != null 
+        && request.auth.token.admin == true;
+      allow delete: if request.auth != null 
+        && request.auth.token.admin == true;
+    }
+    
+    match /portfolio/{allPaths=**} {
+      allow read: if true; // Public read access (required for website)
+      allow write: if request.auth != null 
+        && request.auth.token.admin == true  // Admin-only write
+        && isValidFileType()
+        && isValidFileSize();
+      
+      // ✅ ADD: List and delete for slot-based cleanup operations
+      allow list: if request.auth != null 
+        && request.auth.token.admin == true;
+      allow delete: if request.auth != null 
+        && request.auth.token.admin == true;
+    }
+    
+    match /solutions/{allPaths=**} {
+      allow read: if true; // Public read access (required for website)
+      allow write: if request.auth != null 
+        && request.auth.token.admin == true  // Admin-only write
+        && isValidFileType()
+        && isValidFileSize();
+      
+      // ✅ ADD: List and delete for slot-based cleanup operations
+      allow list: if request.auth != null 
+        && request.auth.token.admin == true;
+      allow delete: if request.auth != null 
+        && request.auth.token.admin == true;
+    }
+    
+    match /resources/{allPaths=**} {
+      allow read: if true; // Public read access (required for website)
+      allow write: if request.auth != null 
+        && request.auth.token.admin == true  // Admin-only write
+        && isValidFileType()
+        && isValidFileSize();
+      
+      // ✅ ADD: List and delete for slot-based cleanup operations
+      allow list: if request.auth != null 
+        && request.auth.token.admin == true;
+      allow delete: if request.auth != null 
+        && request.auth.token.admin == true;
+    }
+    
+    match /industries/{allPaths=**} {
+      allow read: if true; // Public read access (required for website)
+      allow write: if request.auth != null 
+        && request.auth.token.admin == true  // Admin-only write
+        && isValidFileType()
+        && isValidFileSize();
+      
+      // ✅ ADD: List and delete for slot-based cleanup operations
+      allow list: if request.auth != null 
+        && request.auth.token.admin == true;
+      allow delete: if request.auth != null 
+        && request.auth.token.admin == true;
+    }
+    
+    match /general/{allPaths=**} {
+      allow read: if true; // Public read access (required for website)
+      allow write: if request.auth != null 
+        && request.auth.token.admin == true  // Admin-only write
+        && isValidFileType()
+        && isValidFileSize();
+      
+      // ✅ ADD: List and delete for slot-based cleanup operations
+      allow list: if request.auth != null 
+        && request.auth.token.admin == true;
+      allow delete: if request.auth != null 
+        && request.auth.token.admin == true;
+    }
+    
+    // 🚫 DENY ALL OTHER ACCESS
+    match /{allPaths=**} {
+      allow read, write: if false;
+    }
+  }
+  
+  // 🛡️ SECURITY VALIDATION FUNCTIONS
+  function isValidFileType() {
+    return request.resource.contentType.matches('image/.*') ||
+           request.resource.contentType == 'application/pdf' ||
+           request.resource.contentType == 'image/jpeg' ||
+           request.resource.contentType == 'image/png' ||
+           request.resource.contentType == 'image/gif' ||
+           request.resource.contentType == 'image/webp' ||
+           request.resource.contentType == 'image/avif' ||
+           request.resource.contentType == 'image/heic' ||
+           request.resource.contentType == 'image/heif' ||
+           request.resource.contentType == 'image/svg+xml';
+  }
+  
+  function isValidFileSize() {
+    return request.resource.size <= 10 * 1024 * 1024; // 10MB limit
+  }
+} 
