@@ -234,7 +234,7 @@ const MobileNav = ({ logo, menu, auth }: Pick<HeaderProps, "logo" | "menu" | "au
               <AccordionItem key={item.title} value={item.title}>
                 {item.items?.length ? (
                   <>
-                    <AccordionTrigger className="p-2 !font-semibold text-consort-blue lg:text-2xl md:text-xl mobile:text-body font-semibold no-underline hover:text-consort-red transition-colors duration-200">{item.title}
+                    <AccordionTrigger className="p-2 text-consort-blue lg:text-2xl md:text-xl mobile:text-body font-semibold no-underline hover:text-consort-red transition-colors duration-200">{item.title}
                     </AccordionTrigger>
                     <AccordionContent className="space-y-1">
                       {item.items.map((sub) => (
