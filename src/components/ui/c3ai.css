@@ -1,0 +1,348 @@
+
+section#c3ai-software--section {
+    position: relative;
+    padding: clamp(4rem,10vw,8rem) 0;
+    background-color: #2a2a2a;
+    color: #fff;
+    overflow-x: hidden
+}
+
+section#c3ai-software--section h2 {
+    margin-bottom: 1.5rem;
+    font-size: clamp(1.75rem,8vw,3rem);
+    font-weight: 700;
+    text-align: center
+}
+
+section#c3ai-software--section h3 {
+    margin-bottom: 1.5rem;
+    font-size: clamp(1.25rem,8vw,2rem);
+    font-weight: 700
+}
+
+section#c3ai-software--section p.large {
+    max-width: 1060px;
+    margin-bottom: 1.5rem;
+    font-size: clamp(1rem,5vw,2rem);
+    font-weight: 400;
+    line-height: 1.45
+}
+
+section#c3ai-software--section p {
+    max-width: 570px;
+    font-size: clamp(1rem,5vw,1.125rem);
+    font-weight: 400;
+    line-height: 1.45
+}
+
+section#c3ai-software--section li {
+    font-size: clamp(1rem,5vw,1.125rem)
+}
+
+section#c3ai-software--section .buttons {
+    max-width: 1150px;
+    margin: auto;
+    padding: 2rem 0;
+    display: flex;
+    justify-content: space-between
+}
+
+@media (max-width: 767.98px) {
+    section#c3ai-software--section .buttons {
+        margin:0 -0.25rem;
+        padding: 0;
+        display: none
+    }
+}
+
+section#c3ai-software--section .buttons button {
+    width: 100%;
+    margin: 1rem 0.75rem;
+    display: flex;
+    flex-direction: column;
+    color: #919191;
+    font-size: clamp(0.75rem,2vw,1.25rem);
+    font-weight: 700;
+    letter-spacing: -1px;
+    text-align: left;
+    transition: color 0.3s;
+    cursor: pointer
+}
+
+@media (max-width: 767.98px) {
+    section#c3ai-software--section .buttons button {
+        margin:1rem 0.25rem
+    }
+}
+
+section#c3ai-software--section .buttons button:before {
+    content: "";
+    height: 2px;
+    width: 100%;
+    margin-bottom: 1rem;
+    background-color: #919191;
+    transition: background-color 0.3s
+}
+
+section#c3ai-software--section .buttons button.current,section#c3ai-software--section .buttons button:hover {
+    color: #fff
+}
+
+section#c3ai-software--section .buttons button.current:before,section#c3ai-software--section .buttons button:hover:before {
+    background-color: #fff
+}
+
+section#c3ai-software--section .cube--container {
+    position: relative;
+    height: 500px
+}
+
+@media (max-width: 767.98px) {
+    section#c3ai-software--section .cube--container {
+        height:400px
+    }
+}
+
+section#c3ai-software--section .perspective {
+    position: absolute;
+    height: 16rem;
+    width: 16rem;
+    top: 50%;
+    left: 40%;
+    margin: -8em;
+    transform: rotateX(55deg) rotateZ(45deg) translate(-50%,-50%);
+    transform-style: preserve-3d
+}
+
+@media (max-width: 767.98px) {
+    section#c3ai-software--section .perspective {
+        transform:rotateX(55deg) rotateZ(45deg) translate(-25%,-25%) scale3d(0.7,0.7,0.7)
+    }
+}
+
+section#c3ai-software--section .cube,section#c3ai-software--section .cube:after,section#c3ai-software--section .cube:before {
+    content: "";
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    pointer-events: none
+}
+
+section#c3ai-software--section .cube {
+    position: relative;
+    background-color: rgba(255,255,255,0.1);
+    background-image: linear-gradient(145deg,rgba(255,255,255,0.7),transparent);
+    transform: translateZ(100%);
+    transform-style: preserve-3d;
+    transition: 0.25s
+}
+
+section#c3ai-software--section .cube:after {
+    background-color: rgba(255,255,255,0.2);
+    background-image: linear-gradient(45deg,rgba(55,55,55,0.7),transparent);
+    transform: rotateX(-90deg) translateY(100%);
+    transform-origin: 100% 100%
+}
+
+section#c3ai-software--section .cube:before {
+    background-color: rgba(200,200,200,0.3);
+    background-image: linear-gradient(245deg,rgba(55,55,55,0.9),transparent);
+    transform: rotateY(90deg) translateX(100%);
+    transform-origin: 100% 0
+}
+
+section#c3ai-software--section .cube--section,section#c3ai-software--section .cube--section-top,section#c3ai-software--section .cube--section-left,section#c3ai-software--section .cube--section-right {
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    display: grid;
+    align-items: center;
+    justify-content: center;
+    color: #000;
+    font-family: "Helvetica Neue",Helvetica,Arial;
+    font-size: 1rem;
+    font-weight: 600;
+    transform: scale(0.8);
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none
+}
+
+section#c3ai-software--section .cube--section {
+    background-color: #fff;
+    transform-style: preserve-3d;
+    transition: box-shadow 0.4s,background-size 0.2s;
+    cursor: pointer;
+    pointer-events: all
+}
+
+section#c3ai-software--section .cube--section.disabled {
+    cursor: default
+}
+
+section#c3ai-software--section .cube--section-top {
+    background-position: 50%;
+    background-repeat: no-repeat;
+    background-size: 40%;
+    box-shadow: none;
+    transform-style: preserve-3d;
+    transform: scale(1);
+    transition: box-shadow 0.4s,background-size 0.2s,opacity 0.2s;
+    opacity: 1;
+    pointer-events: all
+}
+
+section#c3ai-software--section .cube--section:not(.current):not(:nth-child(1)) {
+    box-shadow: inset 1rem 1rem 3rem 1rem #b3b3b3,inset 1rem 1rem 5rem 2rem gray,inset 1rem 1rem 5rem 10rem #1a1a1a
+}
+
+section#c3ai-software--section .cube--section:nth-child(1).current+.cube--section {
+    box-shadow: inset 1rem 1rem 3rem 1rem rgba(179,179,179,0),inset 1rem 1rem 5rem 2rem rgba(128,128,128,0),inset 1rem 1rem 5rem 10rem rgba(26,26,26,0)
+}
+
+section#c3ai-software--section .cube--section:not(.current) .cube--section-top {
+    opacity: 0.3
+}
+
+section#c3ai-software--section .cube--section-left,section#c3ai-software--section .cube--section-right {
+    background-position: 50%;
+    background-size: 80%;
+    background-repeat: no-repeat;
+    transition: color 0.4s
+}
+
+section#c3ai-software--section .cube--section:not(.current) .cube--section-left,section#c3ai-software--section .cube--section:not(.current) .cube--section-right {
+    color: rgba(0,0,0,0.3)
+}
+
+section#c3ai-software--section .cube--section-left {
+    height: 13%;
+    margin-top: 87%;
+    background-color: #f2f2f2;
+    font-size: 1.4rem;
+    transform: rotateX(-90deg) translateY(100%);
+    transform-origin: 100% 100%
+}
+
+section#c3ai-software--section .cube--section.disabled .cube--section-left {
+    background-color: #6A6B6E;
+    color: rgba(209,211,212,0.5)
+}
+
+section#c3ai-software--section .cube--section-right {
+    height: 13%;
+    margin-top: 113%;
+    background-color: #ababab;
+    transform: rotateY(90deg) rotateZ(-90deg) translateX(100%);
+    transform-origin: 100% 0
+}
+
+section#c3ai-software--section .cube--section.disabled .cube--section-right {
+    background-color: #525355;
+    color: rgba(197,197,197,0.5)
+}
+
+section#c3ai-software--section .cube--section:nth-child(1) {
+    transform: scale(0.8) translateZ(-1rem)
+}
+
+section#c3ai-software--section .cube--section:nth-child(2) {
+    transform: scale(0.8) translateZ(-4rem)
+}
+
+section#c3ai-software--section .cube--section:nth-child(3) {
+    transform: scale(0.8) translateZ(-7rem)
+}
+
+section#c3ai-software--section .cube--section:nth-child(4) {
+    transform: scale(0.8) translateZ(-10rem)
+}
+
+section#c3ai-software--section .cube--section:nth-child(5) {
+    transform: scale(0.8) translateZ(-13rem)
+}
+
+section#c3ai-software--section .cube--content--slide {
+    margin-bottom: 2.5rem;
+    display: flex;
+    flex-direction: column
+}
+
+@media (min-width: 768px) {
+    section#c3ai-software--section .cube--content--slide {
+        margin-top:30px;
+        display: none
+    }
+}
+
+section#c3ai-software--section .cube--content--slide.current {
+    display: flex
+}
+
+section#c3ai-software--section .cube--content .logos {
+    margin: 0;
+    display: flex;
+    flex-wrap: wrap
+}
+
+section#c3ai-software--section .cube--content .logos li {
+    height: 35px;
+    margin-right: 1rem;
+    margin-bottom: 2rem;
+    display: flex;
+    align-items: center;
+    font-size: 13px;
+    font-weight: 700;
+    white-space: nowrap
+}
+
+section#c3ai-software--section .cube--content .logos li img.partner-logo {
+    height: 100%;
+    width: 100%;
+    max-width: unset
+}
+
+section#c3ai-software--section .cube--content .cube--slide-link {
+    color: #fff;
+    font-size: 1rem;
+    font-weight: 600
+}
+
+section#c3ai-software--section .cube--content .cube--slide-link:hover .right-arrow {
+    -webkit-animation-name: arrow-right;
+    animation-name: arrow-right;
+    -webkit-animation-duration: 0.7s;
+    animation-duration: 0.7s;
+    -webkit-animation-iteration-count: infinite;
+    animation-iteration-count: infinite;
+    -webkit-animation-direction: alternate;
+    animation-direction: alternate
+}
+
+@-webkit-keyframes arrow-right {
+    0% {
+        transform: translateX(0)
+    }
+
+    100% {
+        transform: translateX(8px)
+    }
+}
+
+@keyframes arrow-right {
+    0% {
+        transform: translateX(0)
+    }
+
+    100% {
+        transform: translateX(8px)
+    }
+}
+
+section#c3ai-software--section .cube--content .cube--slide-link .right-arrow {
+    height: 12px;
+    width: 20px;
+    margin-left: 1rem;
+    transition: 0.3s all
+}

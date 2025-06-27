@@ -1,0 +1,135 @@
+rules_version = '2';
+
+service cloud.firestore {
+  match /databases/{database}/documents {
+    
+    // 🔒 ADMIN-ONLY COLLECTIONS
+    // Only authenticated users can access these collections (simplified: all authenticated users are admins)
+    match /users/{userId} {
+      allow read, write: if request.auth != null 
+        && request.auth.uid == userId;
+    }
+    
+    // 🚫 CRITICAL SECURITY FIX: Remove public access to users collection
+    // All user data access must now go through Firebase Admin SDK on server-side
+    // This prevents the catastrophic data exposure vulnerability
+    //
+    // REMOVED: match /users/{document=**} { allow read: if true; }
+    // This was a CRITICAL vulnerability exposing all user data publicly
+    
+    match /admin/{document=**} {
+      allow read, write: if request.auth != null;
+    }
+    
+    match /settings/{document=**} {
+      allow read, write: if request.auth != null;
+    }
+    
+    match /analytics/{document=**} {
+      allow read, write: if request.auth != null;
+    }
+    
+    // 🏷️ TAG SYSTEM COLLECTIONS
+    // Collections used by the tag management system
+    match /global-tags/{tagId} {
+      allow read: if true; // Public read access
+      allow write: if request.auth != null; // Only authenticated users can write
+    }
+    
+    match /clients/{clientId} {
+      allow read: if true; // Public read access
+      allow write: if request.auth != null; // Only authenticated users can write
+    }
+    
+    match /product-brands/{brandId} {
+      allow read: if true; // Public read access
+      allow write: if request.auth != null; // Only authenticated users can write
+    }
+    
+    match /icons/{iconId} {
+      allow read: if true; // Public read access
+      allow write: if request.auth != null; // Only authenticated users can write
+    }
+    
+    match /industries/{industryId} {
+      allow read: if true; // Public read access
+      allow write: if request.auth != null; // Only authenticated users can write
+    }
+    
+    match /tag-system/{tagId} {
+      allow read: if true; // Public read access
+      allow write: if request.auth != null; // Only authenticated users can write
+    }
+    
+    match /career/{careerId} {
+      allow read: if true; // Public read access
+      allow write: if request.auth != null; // Only authenticated users can write
+    }
+    
+    // 🌐 PUBLIC READ COLLECTIONS
+    // These can be read publicly but only written by authenticated users
+    match /posts/{postId} {
+      allow read: if true; // Public read access
+      allow write: if request.auth != null; // Only authenticated users can write
+    }
+    
+    match /products/{productId} {
+      allow read: if true; // Public read access
+      allow write: if request.auth != null; // Only authenticated users can write
+    }
+    
+    match /solutions/{solutionId} {
+      allow read: if true; // Public read access
+      allow write: if request.auth != null; // Only authenticated users can write
+    }
+    
+    match /resources/{resourceId} {
+      allow read: if true; // Public read access
+      allow write: if request.auth != null; // Only authenticated users can write
+    }
+    
+    match /news/{newsId} {
+      allow read: if true; // Public read access
+      allow write: if request.auth != null; // Only authenticated users can write
+    }
+    
+    match /portfolio/{portfolioId} {
+      allow read: if true; // Public read access
+      allow write: if request.auth != null; // Only authenticated users can write
+    }
+    
+    // 📊 CONTACT FORMS & SUBMISSIONS
+    // Allow public writes for contact forms, admin read
+    match /contact-submissions/{submissionId} {
+      allow create: if true; // Anyone can submit contact forms
+      allow read, update, delete: if request.auth != null; // Only authenticated users can manage
+    }
+    
+    match /form-submissions/{submissionId} {
+      allow create: if true; // Anyone can submit forms
+      allow read, update, delete: if request.auth != null; // Only authenticated users can manage
+    }
+    
+    // 🔐 SECURITY LOGS - HIGHLY RESTRICTED
+    // Critical security data - very strict access controls
+    match /security_logs/{logId} {
+      // Allow writes only for authenticated admin users for legitimate logging
+      allow create: if request.auth != null 
+        && request.auth.token.admin == true
+        && resource == null; // Only allow creation, not updates
+      
+      // Allow reads only for admin users
+      allow read: if request.auth != null 
+        && request.auth.token.admin == true;
+      
+      // Never allow updates or deletes of security logs
+      allow update, delete: if false;
+    }
+    
+    // 🚫 DENY ALL OTHER ACCESS
+    // Explicitly deny access to any other collections
+    match /{document=**} {
+      allow read, write: if false;
+    }
+  }
+} 

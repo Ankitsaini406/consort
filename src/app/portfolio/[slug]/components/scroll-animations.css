@@ -1,0 +1,110 @@
+/* CSS-only ScrollReveal animations for SSG compatibility */
+
+/* Base animation keyframes */
+@keyframes scrollReveal {
+  from {
+    opacity: 0;
+    transform: translateY(50px);
+    filter: blur(8px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+    filter: blur(0);
+  }
+}
+
+/* Base scroll reveal class */
+.scroll-reveal {
+  opacity: 0;
+  transform: translateY(50px);
+  filter: blur(8px);
+  animation: scrollReveal 0.8s cubic-bezier(0.25, 0.1, 0.25, 1) forwards;
+  animation-play-state: paused;
+  /* ✅ Hardware acceleration for better performance */
+  will-change: opacity, transform, filter;
+  transform-style: preserve-3d;
+}
+
+/* Intersection observer will add this class */
+.scroll-reveal.animate {
+  animation-play-state: running;
+}
+
+/* Section-specific delays matching the products page pattern */
+.scroll-reveal-0 {
+  animation-delay: 0s;
+}
+
+.scroll-reveal-1 {
+  animation-delay: 0.1s;
+}
+
+.scroll-reveal-25 {
+  animation-delay: 0.25s;
+}
+
+.scroll-reveal-2 {
+  animation-delay: 0.2s;
+  width: inherit!important;
+}
+
+.scroll-reveal-3 {
+  animation-delay: 0.3s;
+  width: inherit!important;
+}
+
+.scroll-reveal-4 {
+  animation-delay: 0.4s;
+  width: inherit!important;
+}
+
+.scroll-reveal-5 {
+  animation-delay: 0.5s;
+}
+
+.scroll-reveal-6 {
+  animation-delay: 0.6s;
+}
+
+/* For highlights with incremental delays */
+.scroll-reveal-highlight-0 {
+  animation-delay: 0.3s;
+  width: 100%!important;
+}
+
+.scroll-reveal-highlight-1 {
+  animation-delay: 0.37s; /* 0.3 + (1 * 0.07) */
+}
+
+.scroll-reveal-highlight-2 {
+  animation-delay: 0.44s; /* 0.3 + (2 * 0.07) */
+}
+
+.scroll-reveal-highlight-3 {
+  animation-delay: 0.51s; /* 0.3 + (3 * 0.07) */
+}
+
+.scroll-reveal-highlight-4 {
+  animation-delay: 0.58s; /* 0.3 + (4 * 0.07) */
+}
+
+.scroll-reveal-highlight-5 {
+  animation-delay: 0.65s; /* 0.3 + (5 * 0.07) */
+}
+
+/* Ensure animations don't interfere with layout */
+.scroll-reveal * {
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
+}
+
+/* Reduced motion support */
+@media (prefers-reduced-motion: reduce) {
+  .scroll-reveal {
+    animation: none;
+    opacity: 1;
+    transform: none;
+    filter: none;
+  }
+} 

@@ -1,0 +1,25 @@
+{
+  "firestore": {
+    "rules": "firestore.rules"
+  },
+  "storage": {
+    "rules": "storage.rules"
+  },
+  "apphosting": {
+    "site": "consort",
+    "region": "europe-west4",
+    "source": ".",
+    "ignore": [
+      "node_modules",
+      ".git",
+      "firebase-debug.log",
+      "firebase-debug.*.log",
+      "functions"
+    ],
+    "frameworksBackend": true,
+    "buildConfig": {
+      "buildCommand": "npm run build:firebase",
+      "nodeVersion": "20.11.0"
+    }
+  }
+}
