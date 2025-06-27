@@ -271,7 +271,7 @@ const MobileNav = ({ logo, menu, auth }: Pick<HeaderProps, "logo" | "menu" | "au
                   <h3 className="text-body-lg font-body-xl text-center text-consort-red">#TrustYourResponse</h3>
                 <div className="flex flex-col gap-4 items-center mx-auto">
                   <p className="text-caption mt-2 text-center font-caption text-muted-foreground">
-                    Support: +91 97655 44760 
+                    Support: +91 129 489 1255
                   </p>
                 </div>
               </div>
